@@ -1,20 +1,9 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2761
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\partightenfactor0
+import streamlit as st #beause we are using streamlit
+import qrcode
+from PIL import Image  # allows us to use Image functions from Pillow library
 
-\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 import streamlit as st\
-import qrcode\
-from PIL import Image\
-\
-data = st.text_input("Enter text or URL", "Python is fun")\
-\
-img = qrcode.make(data)\
-img.save('MyQRCode1.jpg')\
-\
-img = Image.open("MyQRCode1.jpg")\
-st.image(img)}
+data = st.text_input("Enter text or URL", "Python is fun")  # creates an input box; default text is "Python is fun"
+img = qrcode.make(data)  # generate QR code from whatever user enters
+img.save('MyQRCode1.jpg')  # save QR code as image file
+img = Image.open("MyQRCode1.jpg") # open the saved QR code image
+st.image(img) # display the QR code in the Streamlit web app
